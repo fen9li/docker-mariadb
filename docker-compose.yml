@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  mariadb:
+    image: mariadb:10.2
+    restart: on-failure
+    networks: 
+      - host
+    ports:
+      - 3306:3306
+    volumes:
+      - ${PWD}/mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: mybb
+      MYSQL_USER: mybb
+      MYSQL_PASSWORD: changeme
+
+networks:
+  host:
