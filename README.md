@@ -78,4 +78,24 @@ Bye
 feng@ubuntu:~/mariadb$
 ```
 
+## git housekeeping
 
+### create git repo from command line
+```
+curl -u 'fen9li' https://api.github.com/user/repos -d '{"name":"docker-mariadb"}'
+
+git init
+git remote add origin git@github.com:fen9li/docker-mariadb.git
+
+feng@ubuntu:~/mariadb$ git remote -v
+origin  git@github.com:fen9li/docker-mariadb.git (fetch)
+origin  git@github.com:fen9li/docker-mariadb.git (push)
+feng@ubuntu:~/mariadb$ 
+
+echo mariadb >> .gitignore
+
+git add .
+git commit -am "Initial commit"
+git push --set-upstream origin master
+
+```
