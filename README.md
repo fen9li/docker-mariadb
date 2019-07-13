@@ -48,14 +48,10 @@ feng@ubuntu:~/mariadb$
 
 ## Test from docker host
 ```
-feng@ubuntu:~/mariadb$ docker inspect -f "{{ .NetworkSettings.Networks.mariadb_host.IPAddress }}" 88f
-172.20.0.2
-feng@ubuntu:~/mariadb$ 
-
-feng@ubuntu:~/mariadb$ mysql -h 172.20.0.2 -P 3306 -u root -p mybb
+feng@ubuntu:~/mariadb$ mysql -h 127.0.0.1 -P 3306 -u mybb -p mybb
 Enter password: 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 12
+Your MariaDB connection id is 8
 Server version: 10.2.25-MariaDB-1:10.2.25+maria~bionic mariadb.org binary distribution
 
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
@@ -68,14 +64,12 @@ MariaDB [mybb]> show databases;
 +--------------------+
 | information_schema |
 | mybb               |
-| mysql              |
-| performance_schema |
 +--------------------+
-4 rows in set (0.001 sec)
+2 rows in set (0.001 sec)
 
 MariaDB [mybb]> quit
 Bye
-feng@ubuntu:~/mariadb$
+feng@ubuntu:~/mariadb$  
 ```
 
 ## git housekeeping

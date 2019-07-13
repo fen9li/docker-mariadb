@@ -4,16 +4,20 @@ services:
     image: mariadb:10.2
     restart: on-failure
     networks: 
-      - host
+      - backend
     ports:
       - 3306:3306
+    expose:
+      - 3306
     volumes:
-      - ${PWD}/mariadb:/var/lib/mysql
+      - mybb:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: mybb
       MYSQL_USER: mybb
       MYSQL_PASSWORD: changeme
+      MYSQL_ROOT_PASSWORD: changeme
 
+volumes:
+  mybb:
 networks:
-  host:
+  backend:
